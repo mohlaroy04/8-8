@@ -41,6 +41,17 @@ INSTALLED_APPS = [
     'foods',
 ]
 
+
+REST_FRAMEWORK = {
+    'DEFAULT_THROTTLE_CLASSES': [
+        'rest_framework.throttling.UserRateThrottle',
+    },
+    'DEFAULT_THROTTLE_RATES': {
+        'user': '10/hour', 
+    }
+}
+
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
